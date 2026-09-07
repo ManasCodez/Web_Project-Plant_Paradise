@@ -81,6 +81,40 @@
         </div>
       </div>
     </section>
+    <section class="contact-form-section">
+      <div class="glass-card">
+        <div class="card-header">
+          <h3><span class="card-leaf">🌿</span> Send Us a Message</h3>
+          <p>Fill out the form and we'll get back to you soon</p>
+        </div>
+
+        <form action="#" method="POST" class="contact-form" onsubmit="event.preventDefault();">
+          <div class="input-group">
+            <i class="fa-solid fa-user input-icon"></i>
+            <input type="text" id="name" name="name" placeholder="Your Name" required>
+          </div>
+
+          <div class="input-group">
+            <i class="fa-solid fa-envelope input-icon"></i>
+            <input type="email" id="email" name="email" placeholder="Your Email" required>
+          </div>
+
+          <div class="input-group">
+            <i class="fa-solid fa-comment input-icon"></i>
+            <input type="text" id="subject" name="subject" placeholder="Subject" required>
+          </div>
+
+          <div class="input-group textarea-group">
+            <i class="fa-solid fa-pen input-icon"></i>
+            <textarea id="message" name="message" rows="4" placeholder="Your Message" required></textarea>
+          </div>
+
+          <button type="submit" class="submit-btn">
+            Send Message <span class="btn-arrow">➤</span>
+          </button>
+        </form>
+      </div>
+    </section>
   </main>
 </body>
 </html>
