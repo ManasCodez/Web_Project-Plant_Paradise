@@ -144,3 +144,51 @@ body {
 }
 .ambient-leaf-1 { top: 10%; left: -50px; }
 .ambient-leaf-2 { bottom: 10%; right: -50px; }
+
+.contact-container {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1280px;
+  padding: 2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3.5rem;
+  align-items: center;
+}
+
+/* Left Section: Information */
+.contact-info-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.brand-icon {
+  font-size: 1.8rem;
+}
+
+.brand-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.brand-title {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 1.1rem;
+  letter-spacing: 2px;
+  color: var(--cream);
+}
+
+.brand-tagline {
+  font-size: 0.625rem;
+  letter-spacing: 2px;
+  color: var(--accent-green);
+}
