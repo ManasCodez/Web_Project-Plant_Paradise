@@ -1,1 +1,30 @@
+:root {
+  --dark-green: #0B2116;
+  --deep-green: #142D20;
+  --forest-green: #1F3A2A;
+  --accent-green: #A8C49A;
+  --light-green: #DDE6D2;
+  --cream: #F3F1E7;
+  
+  --font-heading: 'Playfair Display', serif;
+  --font-body: 'Poppins', sans-serif;
+}
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--cream);
+  min-height: 100vh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow-x: hidden;
+  background-color: var(--dark-green);
+}
