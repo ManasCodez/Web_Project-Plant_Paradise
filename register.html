@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plant Paradise - Create Account</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="bg-overlay"></div>
+
+    <main class="page-container">
+        <section class="register-card">
+            
+            <div class="card-header">
+                <div class="brand-logo">
+                    <i class="fa-solid fa-leaf"></i>
+                </div>
+                <h1>Create Your Account</h1>
+                <p class="subtitle">Join Plant Paradise and start your green journey</p>
+            </div>
+
+            <form action="#" method="POST" class="register-form">
+                
+                <div class="form-grid">
+                    
+                    <div class="input-group">
+                        <label for="fullname">Full Name</label>
+                        <div class="input-wrapper">
+                            <i class="fa-regular fa-user field-icon-left"></i>
+                            <input type="text" id="fullname" name="fullname" placeholder="John Doe" required>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="username">Username</label>
+                        <div class="input-wrapper">
+                            <i class="fa-solid fa-at field-icon-left"></i>
+                            <input type="text" id="username" name="username" placeholder="johndoe" required>
+                        </div>
+                    </div>
+
+                    <div class="input-group full-width">
+                        <label for="email">Email Address</label>
+                        <div class="input-wrapper">
+                            <i class="fa-regular fa-envelope field-icon-left"></i>
+                            <input type="email" id="email" name="email" placeholder="john@example.com" required>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="password">Password</label>
+                        <div class="input-wrapper">
+                            <i class="fa-solid fa-lock field-icon-left"></i>
+                            <input type="password" id="password" name="password" placeholder="••••••••" required>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="confirm-password">Confirm Password</label>
+                        <div class="input-wrapper">
+                            <i class="fa-solid fa-shield-halved field-icon-left"></i>
+                            <input type="password" id="confirm-password" name="confirm-password" placeholder="••••••••" required>
+                        </div>
+                    </div>
+
+                    <div class="input-group full-width">
+                        <label for="dob">Date of Birth</label>
+                        <div class="input-wrapper">
+                            <i class="fa-regular fa-calendar field-icon-left"></i>
+                            <input type="date" id="dob" name="dob" required>
+                        </div>
+                    </div>
+
+                </div>
+
+                <button type="submit" class="submit-btn">
+                    <span>Create Account</span>
+                    <i class="fa-solid fa-leaf"></i>
+                </button>
+
+                <p class="login-prompt">
+                    Already have an account? <a href="#">Login</a>
+                </p>
+
+            </form>
+        </section>
+    </main>
+</body>
+</html>

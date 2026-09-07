@@ -1,0 +1,262 @@
+/* ==========================================
+   1. VARIABLES & GLOBAL STYLES
+   ========================================== */
+:root {
+    /* Plant Paradise Color Palette */
+    --color-dark-bg: #0B2116;
+    --color-deep-green: #142D20;
+    --color-card-green: rgba(31, 58, 42, 0.55);
+    --color-accent-green: #A8C49A;
+    --color-light-green: #DDE6D2;
+    --color-cream: #F3F1E7;
+    --color-border-green: rgba(168, 196, 154, 0.3);
+    --color-focus-green: #A8C49A;
+    
+    /* Typography */
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Poppins', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-body);
+    color: var(--color-cream);
+    min-height: 100vh;
+    background: url('https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?q=80&w=2000&auto=format&fit=crop') no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+/* Background darken overlay */
+.bg-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(11, 33, 22, 0.65);
+    z-index: 1;
+}
+
+/* Page Wrapper */
+.page-container {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+/* ==========================================
+   2. GLASSMORPHISM REGISTRATION CARD
+   ========================================== */
+.register-card {
+    background: var(--color-card-green);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid var(--color-border-green);
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4), 
+                0 0 15px rgba(168, 196, 154, 0.1);
+    width: 100%;
+    max-width: 650px;
+    padding: 40px 45px;
+}
+
+/* Card Header & Brand Logo */
+.card-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.brand-logo {
+    width: 60px;
+    height: 60px;
+    background: rgba(168, 196, 154, 0.15);
+    border: 1px solid var(--color-accent-green);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 15px auto;
+}
+
+.brand-logo i {
+    font-size: 26px;
+    color: var(--color-light-green);
+}
+
+.card-header h1 {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--color-cream);
+    margin-bottom: 8px;
+    letter-spacing: 0.5px;
+}
+
+.subtitle {
+    font-size: 0.9rem;
+    color: var(--color-accent-green);
+    font-weight: 300;
+}
+
+/* ==========================================
+   3. FORM & INPUT FIELDS
+   ========================================== */
+.register-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px 20px;
+}
+
+.full-width {
+    grid-column: span 2;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.input-group label {
+    font-size: 0.85rem;
+    color: var(--color-light-green);
+    font-weight: 400;
+}
+
+.input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+/* Inputs styling */
+.input-wrapper input {
+    width: 100%;
+    padding: 12px 16px 12px 42px;
+    background: rgba(11, 33, 22, 0.45);
+    border: 1px solid var(--color-border-green);
+    border-radius: 10px;
+    color: var(--color-cream);
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+
+.input-wrapper input::placeholder {
+    color: rgba(243, 241, 231, 0.4);
+}
+
+/* Focus and Hover states */
+.input-wrapper input:hover {
+    border-color: var(--color-accent-green);
+}
+
+.input-wrapper input:focus {
+    border-color: var(--color-focus-green);
+    background: rgba(11, 33, 22, 0.65);
+    box-shadow: 0 0 8px rgba(168, 196, 154, 0.25);
+}
+
+/* Icon positions */
+.field-icon-left {
+    position: absolute;
+    left: 14px;
+    color: var(--color-accent-green);
+    font-size: 0.95rem;
+    pointer-events: none;
+}
+
+.field-icon-right {
+    position: absolute;
+    right: 14px;
+    color: rgba(243, 241, 231, 0.5);
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.field-icon-right:hover {
+    color: var(--color-light-green);
+}
+
+/* Fix browser dark theme icons for date input */
+input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(0.8) sepia(0.2) saturate(0.5) hue-rotate(50deg);
+    cursor: pointer;
+}
+
+/* ==========================================
+   4. BUTTON & FOOTER
+   ========================================== */
+.submit-btn {
+    width: 100%;
+    padding: 14px;
+    background-color: var(--color-light-green);
+    color: var(--color-dark-bg);
+    border: none;
+    border-radius: 10px;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.submit-btn:hover {
+    background-color: #eaf0e3;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(168, 196, 154, 0.3);
+}
+
+.submit-btn:active {
+    transform: translateY(0);
+}
+
+.submit-btn i {
+    font-size: 0.95rem;
+}
+
+/* Login link text */
+.login-prompt {
+    text-align: center;
+    font-size: 0.85rem;
+    color: var(--color-light-green);
+}
+
+.login-prompt a {
+    color: var(--color-accent-green);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease, text-decoration 0.3s ease;
+}
+
+.login-prompt a:hover {
+    color: var(--color-cream);
+    text-decoration: underline;
+}
+
