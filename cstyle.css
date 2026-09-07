@@ -271,3 +271,142 @@ body {
   color: var(--cream);
   font-weight: 500;
 }
+.contact-form-section {
+  display: flex;
+  justify-content: center;
+}
+
+.glass-card {
+  width: 100%;
+  max-width: 520px;
+  background: rgba(11, 33, 22, 0.55);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(168, 196, 154, 0.25);
+  border-radius: 28px;
+  padding: 2.5rem;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+}
+
+.card-header {
+  margin-bottom: 1.75rem;
+}
+
+.card-header h3 {
+  font-family: var(--font-heading);
+  font-size: 1.75rem;
+  font-weight: 500;
+  color: var(--cream);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.card-leaf {
+  font-size: 1.25rem;
+}
+
+.card-header p {
+  font-size: 0.85rem;
+  color: var(--accent-green);
+  margin-top: 0.25rem;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.input-group {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-icon {
+  position: absolute;
+  left: 1.25rem;
+  color: var(--accent-green);
+  font-size: 0.9rem;
+  opacity: 0.8;
+  pointer-events: none;
+}
+
+.textarea-group {
+  align-items: flex-start;
+}
+
+.textarea-group .input-icon {
+  top: 1.25rem;
+}
+
+.input-group input,
+.input-group textarea {
+  width: 100%;
+  padding: 1rem 1rem 1rem 3rem;
+  background: rgba(20, 45, 32, 0.4);
+  border: 1px solid rgba(168, 196, 154, 0.2);
+  border-radius: 14px;
+  color: var(--cream);
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.input-group textarea {
+  resize: none;
+}
+
+.input-group input::placeholder,
+.input-group textarea::placeholder {
+  color: var(--light-green);
+  opacity: 0.5;
+}
+
+.input-group input:hover,
+.input-group textarea:hover {
+  border-color: rgba(168, 196, 154, 0.4);
+}
+
+.input-group input:focus,
+.input-group textarea:focus {
+  border-color: var(--accent-green);
+  background: rgba(20, 45, 32, 0.65);
+  box-shadow: 0 0 12px rgba(168, 196, 154, 0.15);
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 1rem;
+  margin-top: 0.5rem;
+  background-color: var(--accent-green);
+  color: var(--dark-green);
+  border: none;
+  border-radius: 14px;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.btn-arrow {
+  font-size: 0.85rem;
+  transition: transform 0.3s ease;
+}
+
+.submit-btn:hover {
+  background-color: var(--light-green);
+  box-shadow: 0 8px 20px rgba(168, 196, 154, 0.3);
+}
+
+.submit-btn:hover .btn-arrow {
+  transform: translateX(4px);
+}
+
