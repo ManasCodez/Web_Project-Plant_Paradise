@@ -192,3 +192,37 @@ body {
   letter-spacing: 2px;
   color: var(--accent-green);
 }
+.heading-wrapper {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+}
+
+.main-heading {
+  font-family: var(--font-heading);
+  font-size: 5rem;
+  font-weight: 600;
+  line-height: 1.05;
+  color: var(--cream);
+}
+
+.leaf-decor {
+  font-size: 2rem;
+  opacity: 0.8;
+}
+
+.intro-text h2 {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: var(--accent-green);
+  margin-bottom: 0.5rem;
+}
+
+.intro-text p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--light-green);
+  max-width: 480px;
+  opacity: 0.9;
+}
