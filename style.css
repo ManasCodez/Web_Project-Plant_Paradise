@@ -542,3 +542,13 @@ body {
         height: 70vh;
     }
 }
+
+@media (max-width: 780px) {
+    .nav-links{
+        display:none;
+    }
+    .nav-container{
+        display: flex;
+        justify-content: center;
+    }
+}
