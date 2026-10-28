@@ -109,6 +109,55 @@
     background: #52b788;
 }
 
+/* Quantity Controls on Card */
+.qty-control {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #eef7ee;
+    border: 1px solid #52b788;
+    border-radius: 6px;
+    padding: 3px 6px;
+    box-sizing: border-box;
+}
+
+.qty-control.hidden {
+    display: none;
+}
+
+.qty-btn {
+    width: 28px;
+    height: 28px;
+    background: #2d6a4f;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s ease, transform 0.1s ease;
+}
+
+.qty-btn:hover {
+    background: #52b788;
+}
+
+.qty-btn:active {
+    transform: scale(0.95);
+}
+
+.qty-count {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    color: #1b4332;
+    min-width: 28px;
+    text-align: center;
+}
+
 /* Cart Summary Bar */
 .cart-bar {
     position: fixed;
@@ -151,8 +200,13 @@
     font-size: 13px;
     border: none;
     border-radius: 20px;
-    cursor: not-allowed;
-    transition: background 0.3s ease;
+    cursor: pointer;
+    transition: background 0.3s ease, opacity 0.3s ease, transform 0.2s ease;
+}
+
+.cart-btn:hover:not(:disabled) {
+    background: #74c69d;
+    transform: scale(1.03);
 }
 
 .cart-btn:disabled {
