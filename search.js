@@ -1,6 +1,6 @@
-// ==============================
+
 // PLANT PARADISE LIVE SEARCH
-// ==============================
+
 
 // Access HTML elements
 const searchInput = document.getElementById("plantSearch");
@@ -17,18 +17,18 @@ const clearButton = document.getElementById("clearSearch");
 // Search function
 function searchPlants() {
 
-    // Get user input and convert to lowercase
+
     const searchText = searchInput.value.toLowerCase().trim();
 
     let visibleCount = 0;
 
-    // Loop through each plant card
+
     plantCards.forEach(function(card) {
 
-        // Get plant name
+
         const plantName = card.querySelector("h3").textContent.toLowerCase();
 
-        // Compare with search text
+
         if (plantName.includes(searchText)) {
 
             card.style.display = "";
@@ -43,7 +43,6 @@ function searchPlants() {
     });
 
 
-    // Hide sections that have no matching plants
     plantSections.forEach(function(section) {
 
         const cards = section.querySelectorAll(".plant-card");
@@ -63,7 +62,7 @@ function searchPlants() {
     });
 
 
-    // Display search result message
+
     if (searchText === "") {
 
         searchResult.textContent = "";
@@ -81,11 +80,9 @@ function searchPlants() {
 }
 
 
-// Run search whenever the user types
 searchInput.addEventListener("input", searchPlants);
 
 
-// Clear search functionality
 clearButton.addEventListener("click", function() {
 
     searchInput.value = "";
