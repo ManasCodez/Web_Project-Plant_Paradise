@@ -11,6 +11,7 @@
 
 <body>
 
+    
     <!-- Hero Section -->
     <div class="hero" id="home">
         <nav class="navbar">
@@ -49,6 +50,31 @@
             <div class="box box12"></div>
         </div>
     </div>
+    <!-- Live Plant Search Section -->
+<section class="search-section">
+
+    <h2>Find Your Perfect Plant 🌿</h2>
+
+    <p>Search from our collection of beautiful plants</p>
+
+    <div class="search-container">
+        <i class="fa-solid fa-magnifying-glass"></i>
+
+        <input
+            type="text"
+            id="plantSearch"
+            placeholder="Search plants (e.g. Tulsi, Rose, Aloe Vera)"
+            autocomplete="off"
+        >
+
+        <button id="clearSearch" type="button">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+    </div>
+
+    <p id="searchResult"></p>
+
+</section>
 
     <!-- Plant Categories Section -->
     <section class="categories" id="categories">
@@ -393,7 +419,7 @@
             <p>&copy; 2026 Plant Paradise. All rights reserved. Made with 💚 for plant lovers.</p>
         </div>
     </footer>
-
+<script src="search.js"></script>
 </body>
 
 </html>
