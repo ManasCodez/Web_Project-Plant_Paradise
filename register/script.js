@@ -20,12 +20,6 @@ document.addEventListener('DOMContentLoaded', () => {
             const confirmPassword = confirmPasswordInput ? confirmPasswordInput.value : '';
             const dob = dobInput ? dobInput.value : '';
 
-            if (dob && dob > today) {
-                alert('Date of Birth cannot be in the future.');
-                dobInput.focus();
-                return;
-            }
-
             if (password !== confirmPassword) {
                 alert('Passwords do not match. Please re-enter.');
                 confirmPasswordInput.focus();
