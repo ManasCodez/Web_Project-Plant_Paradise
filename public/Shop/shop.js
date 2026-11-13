@@ -5,7 +5,6 @@ let allOrders = [];
 let totalItems = 0;
 let totalPrice = 0;
 
-
 const cartText = document.getElementById('cart-summary-text');
 const checkoutBtn = document.getElementById('checkout-btn');
 const productCards = document.querySelectorAll('.product-card');
@@ -87,8 +86,8 @@ productCards.forEach(card => {
     };
 });
 
-// 5. Checkout: save order and download updated orders.json
-checkoutBtn.onclick = function () {
+// 5. Checkout: save order via MongoDB API
+checkoutBtn.onclick = async function () {
     if (totalItems === 0) return;
 
     // Collect items from cards
@@ -98,32 +97,55 @@ checkoutBtn.onclick = function () {
         if (item) currentItems.push(item);
     });
 
+    const userRaw = localStorage.getItem('plantParadiseUser');
+    let customerEmail = 'guest@plantparadise.com';
+    if (userRaw) {
+        try {
+            const parsed = JSON.parse(userRaw);
+            if (parsed.email) customerEmail = parsed.email;
+        } catch (e) {}
+    }
+
     // Create new order object
     let newOrder = {
-        orderId: Date.now(),
+        orderId: `ORD-${Date.now()}`,
         items: currentItems,
         totalItems: totalItems,
-        totalAmount: totalPrice
+        totalAmount: totalPrice,
+        customerEmail: customerEmail
     };
 
-    // Add new order to previous orders list
-    allOrders.push(newOrder);
-
-    // Download the updated orders.json file
-    let jsonString = JSON.stringify(allOrders, null, 2);
-    let blob = new Blob([jsonString], { type: "application/json" });
-    let link = document.createElement("a");
-    link.href = URL.createObjectURL(blob);
-    link.download = "orders.json";
-    link.click();
-
-    // Reset everything back to zero
-    totalItems = 0;
-    totalPrice = 0;
-    cartText.textContent = "0 items — Total: ₹0";
+    const originalText = checkoutBtn.textContent;
     checkoutBtn.disabled = true;
+    checkoutBtn.textContent = 'Processing Order...';
 
-    productCards.forEach(card => card.resetCard());
+    try {
+        const response = await fetch('/api/orders', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(newOrder)
+        });
 
-    alert("Order placed! orders.json downloaded.");
+        const data = await response.json();
+
+        if (response.ok && data.success) {
+            alert(`🎉 Order placed successfully!\nOrder ID: ${data.order.orderId}\nTotal: ₹${data.order.totalAmount}\nItems: ${data.order.totalItems}`);
+            
+            // Reset everything back to zero
+            totalItems = 0;
+            totalPrice = 0;
+            cartText.textContent = "0 items — Total: ₹0";
+            productCards.forEach(card => card.resetCard());
+        } else {
+            alert(data.message || 'Could not process order. Please try again.');
+        }
+    } catch (err) {
+        console.error('Order submission error:', err);
+        alert('Failed to connect to the backend server to place the order.');
+    } finally {
+        checkoutBtn.textContent = originalText;
+        checkoutBtn.disabled = (totalItems === 0);
+    }
 };
