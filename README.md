@@ -134,3 +134,6 @@ Open your browser and navigate to:
 ## 💚 Made With
 
 **Node.js + Express + MongoDB + HTML/CSS + 🌱 A Love for Plants**
+
+
+MongoDB page content setup, migration safety, APIs, and verification: [CONTENT.md](./CONTENT.md).

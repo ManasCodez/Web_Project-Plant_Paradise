@@ -1,0 +1,757 @@
+{
+  "pages": [
+    {
+      "slug": "home",
+      "content": {
+        "field1": "Plant Paradise",
+        "field2": "#home",
+        "field3": "Plant Paradise",
+        "field4": "#home",
+        "field5": "Home",
+        "field6": "#categories",
+        "field7": "Categories",
+        "field8": "Shop/",
+        "field9": "Shop",
+        "field10": "contact/",
+        "field11": "Contact",
+        "field12": "login/",
+        "field13": "Login",
+        "field14": "register/",
+        "field15": "Register",
+        "field16": "Plant Paradise",
+        "field17": "Discover the beauty and benefits of plants around you.",
+        "field18": "#categories",
+        "field19": "Explore",
+        "field20": "Plant Categories",
+        "field21": "Click on a category below to learn more about each plant.",
+        "field22": "Find Your Perfect Plant 🌿",
+        "field23": "Search from our collection of beautiful plants",
+        "field24": "Search plants (e.g. Tulsi, Rose, Aloe Vera)",
+        "field25": "🌿 Plant Paradise",
+        "field26": "\r\n                    Discover the beauty, healing power, and serenity of nature. Your complete guide to indoor plants, medicinal herbs, and gardening wonders.\r\n                ",
+        "field27": "#",
+        "field28": "Facebook",
+        "field29": "#",
+        "field30": "Instagram",
+        "field31": "Quick Links",
+        "field32": "#home",
+        "field33": "Home",
+        "field34": "#categories",
+        "field35": "Plant Categories",
+        "field36": "contact/",
+        "field37": "Contact Us",
+        "field38": "login/",
+        "field39": "Login",
+        "field40": "register/",
+        "field41": "Register",
+        "field42": "404.html",
+        "field43": "404",
+        "field44": "Plant Types",
+        "field45": "#medicinal",
+        "field46": "Medicinal Plants",
+        "field47": "#edible",
+        "field48": "Edible Plants",
+        "field49": "#indoor",
+        "field50": "Indoor Plants",
+        "field51": "#flowering",
+        "field52": "Flowering Plants",
+        "field53": "#fruit",
+        "field54": "Fruit Plants",
+        "field55": "#desert",
+        "field56": "Desert Plants",
+        "field57": "Get in Touch",
+        "field58": " Haryana, India",
+        "field59": " plantparadise@gmail.com",
+        "field60": " +91 94527 37817",
+        "field61": " Mon - Sat: 9:00 AM - 6:00 PM",
+        "field62": "Subscribe for plant care tips:",
+        "field63": "Your email address",
+        "field64": "Join",
+        "field65": "© 2026 Plant Paradise. All rights reserved. Made with 💚 for plant lovers."
+      },
+      "plants": [
+        {
+          "slug": "medicinal-aloe-vera",
+          "category": "medicinal",
+          "name": "Aloe Vera",
+          "description": "A succulent plant with thick, fleshy leaves.",
+          "highlight": "Famous for: Skincare and healing burns",
+          "uses": "Uses: Treats sunburns, moisturizes skin, helps with minor cuts.",
+          "imageUrl": "https://4.imimg.com/data4/KC/HQ/MY-26546391/alovera-plants-1000x1000.jpg",
+          "imageAlt": "Aloe Vera",
+          "displayOrder": 0
+        },
+        {
+          "slug": "medicinal-tulsi",
+          "category": "medicinal",
+          "name": "Tulsi",
+          "description": "A sacred herb grown in many Indian homes.",
+          "highlight": "Famous for: Improving immunity and helping coughs/colds",
+          "uses": "Uses: Brewed as tea, fights infections, relieves cold symptoms.",
+          "imageUrl": "https://i.etsystatic.com/21875347/r/il/06275b/2680539925/il_1588xN.2680539925_q2re.jpg",
+          "imageAlt": "Tulsi",
+          "displayOrder": 1
+        },
+        {
+          "slug": "medicinal-neem",
+          "category": "medicinal",
+          "name": "Neem",
+          "description": "A tree known for its bitter leaves and wide uses.",
+          "highlight": "Famous for: Antibacterial and skincare properties",
+          "uses": "Uses: Used in soaps, treats skin problems, repels insects.",
+          "imageUrl": "https://i.pinimg.com/originals/18/3a/61/183a61b5c4d7a0ca3856ca7c422d52df.jpg",
+          "imageAlt": "Neem",
+          "displayOrder": 2
+        },
+        {
+          "slug": "medicinal-mint",
+          "category": "medicinal",
+          "name": "Mint",
+          "description": "A refreshing herb with a strong smell and taste.",
+          "highlight": "Famous for: Digestion and refreshing flavor",
+          "uses": "Uses: Added to drinks, helps digestion, freshens breath.",
+          "imageUrl": "https://keyassets.timeincuk.net/inspirewp/live/wp-content/uploads/sites/8/2019/04/C8AR9P.jpg",
+          "imageAlt": "Mint",
+          "displayOrder": 3
+        },
+        {
+          "slug": "edible-spinach",
+          "category": "edible",
+          "name": "Spinach",
+          "description": "A green leafy vegetable eaten worldwide.",
+          "highlight": "Famous for: Rich in nutrients and iron",
+          "uses": "Uses: Added to salads, soups, and smoothies for nutrition.",
+          "imageUrl": "https://tse4.mm.bing.net/th/id/OIP.u92QgP_oUKJCrqP646JJPgHaHo?r=0&pid=Api&h=220&P=0",
+          "imageAlt": "Spinach",
+          "displayOrder": 4
+        },
+        {
+          "slug": "edible-carrot",
+          "category": "edible",
+          "name": "Carrot",
+          "description": "A bright orange root vegetable, crunchy and sweet.",
+          "highlight": "Famous for: Vitamin A and eye health",
+          "uses": "Uses: Eaten raw, in soups, juices, and salads.",
+          "imageUrl": "https://tse1.mm.bing.net/th/id/OIP.XyWdR2Y-evtyArYy-Hz3xgHaHa?r=0&pid=Api&h=220&P=0",
+          "imageAlt": "Carrot",
+          "displayOrder": 5
+        },
+        {
+          "slug": "edible-broccoli",
+          "category": "edible",
+          "name": "Broccoli",
+          "description": "A green tree-like vegetable with a mild taste.",
+          "highlight": "Famous for: Its nutritional value",
+          "uses": "Uses: Steamed, boiled, stir-fried, or eaten raw.",
+          "imageUrl": "https://natashaskitchen.com/wp-content/uploads/2022/09/Roasted-Broccoli-SQ.jpg",
+          "imageAlt": "Broccoli",
+          "displayOrder": 6
+        },
+        {
+          "slug": "edible-potato",
+          "category": "edible",
+          "name": "Potato",
+          "description": "A starchy tuber eaten in many dishes around the world.",
+          "highlight": "Famous for: Commonly used as a food vegetable",
+          "uses": "Uses: Fried, boiled, baked, mashed, and used in curries.",
+          "imageUrl": "https://tse4.mm.bing.net/th/id/OIP.fc-rg5qIh2JRZvI81NYt5gHaHU?r=0&pid=Api&h=220&P=0",
+          "imageAlt": "Potato",
+          "displayOrder": 7
+        },
+        {
+          "slug": "indoor-snake-plant",
+          "category": "indoor",
+          "name": "Snake Plant",
+          "description": "A tall, upright plant with long sword-like leaves.",
+          "highlight": "Famous for: Being low maintenance",
+          "uses": "Uses: Purifies air, needs little water, good for beginners.",
+          "imageUrl": "https://tse3.mm.bing.net/th/id/OIP.8WxCH9q1uUZs5eo6f6dnOQHaFj?r=0&pid=Api&h=220&P=0",
+          "imageAlt": "Snake Plant",
+          "displayOrder": 8
+        },
+        {
+          "slug": "indoor-money-plant",
+          "category": "indoor",
+          "name": "Money Plant",
+          "description": "A popular trailing plant with round green leaves.",
+          "highlight": "Famous for: Being a decorative indoor plant",
+          "uses": "Uses: Decorates homes, purifies air, easy to grow in water.",
+          "imageUrl": "https://m.media-amazon.com/images/S/aplus-media-library-service-media/7a566d18-51d2-40b8-adf7-6981fef64af9.__CR0,0,970,600_PT0_SX970_V1___.png",
+          "imageAlt": "Money Plant",
+          "displayOrder": 9
+        },
+        {
+          "slug": "indoor-spider-plant",
+          "category": "indoor",
+          "name": "Spider Plant",
+          "description": "A plant with long arching leaves and small white flowers.",
+          "highlight": "Famous for: Easy to grow at home",
+          "uses": "Uses: Removes indoor pollutants, easy to care for, good for beginners.",
+          "imageUrl": "https://www.seasol.com.au/wp-content/uploads/2021/11/iStock-1390211292-scaled.jpg",
+          "imageAlt": "Spider Plant",
+          "displayOrder": 10
+        },
+        {
+          "slug": "indoor-peace-lily",
+          "category": "indoor",
+          "name": "Peace Lily",
+          "description": "A plant with dark green leaves and beautiful white flowers.",
+          "highlight": "Famous for: Beautiful white flowers and indoor appearance",
+          "uses": "Uses: Decorates rooms, improves air quality, thrives in shade.",
+          "imageUrl": "https://tse3.mm.bing.net/th/id/OIP.hQ8eOslbINs1MIykneL32QHaE8?r=0&pid=Api&h=220&P=0",
+          "imageAlt": "Peace Lily",
+          "displayOrder": 11
+        },
+        {
+          "slug": "flowering-rose",
+          "category": "flowering",
+          "name": "Rose",
+          "description": "A classic flower with a sweet fragrance and many colors.",
+          "highlight": "Famous for: A symbol of love and beauty",
+          "uses": "Uses: Used in bouquets, perfumes, weddings, and decorations.",
+          "imageUrl": "https://tse2.mm.bing.net/th/id/OIP.SY_gmikDr7XfaAJIaUNXGAHaHa?r=0&pid=Api&h=220&P=0",
+          "imageAlt": "Rose",
+          "displayOrder": 12
+        },
+        {
+          "slug": "flowering-sunflower",
+          "category": "flowering",
+          "name": "Sunflower",
+          "description": "A large bright yellow flower that follows the sun.",
+          "highlight": "Famous for: Its large yellow flower",
+          "uses": "Uses: Grown for seeds, oil, gardens, and decorations.",
+          "imageUrl": "https://cdn.wallpapersafari.com/9/91/pmkLiv.jpg",
+          "imageAlt": "Sunflower",
+          "displayOrder": 13
+        },
+        {
+          "slug": "flowering-hibiscus",
+          "category": "flowering",
+          "name": "Hibiscus",
+          "description": "A tropical plant with large colorful flowers.",
+          "highlight": "Famous for: Its colorful flowers",
+          "uses": "Uses: Used in tea, decorations, and gardens.",
+          "imageUrl": "https://tse1.mm.bing.net/th/id/OIP.KhDEBylDGLEETj4ciqw-yQHaFj?r=0&pid=Api&h=220&P=0",
+          "imageAlt": "Hibiscus",
+          "displayOrder": 14
+        },
+        {
+          "slug": "flowering-jasmine",
+          "category": "flowering",
+          "name": "Jasmine",
+          "description": "A vine with small white flowers and a strong sweet smell.",
+          "highlight": "Famous for: Its strong and pleasant fragrance",
+          "uses": "Uses: Used in perfumes, tea, garlands, and aromatherapy.",
+          "imageUrl": "https://www.petalrepublic.com/wp-content/uploads/2021/04/Ultimate-Guide-to-Jasmine-Flower-Meaning-Types-and-Uses-1536x1024.jpeg",
+          "imageAlt": "Jasmine",
+          "displayOrder": 15
+        },
+        {
+          "slug": "fruit-mango",
+          "category": "fruit",
+          "name": "Mango",
+          "description": "A tropical fruit tree that produces sweet yellow fruit.",
+          "highlight": "Famous for: The \"King of Fruits\"",
+          "uses": "Uses: Eaten fresh, in juices, desserts, pickles, and smoothies.",
+          "imageUrl": "https://tse3.mm.bing.net/th/id/OIP.mup_rcvSBlZvFKIG3mxdXAHaE7?r=0&pid=Api&h=220&P=0",
+          "imageAlt": "Mango",
+          "displayOrder": 16
+        },
+        {
+          "slug": "fruit-banana",
+          "category": "fruit",
+          "name": "Banana",
+          "description": "A long curved fruit with soft sweet flesh inside.",
+          "highlight": "Famous for: A quick source of energy",
+          "uses": "Uses: Eaten as a snack, in smoothies, desserts, and cooking.",
+          "imageUrl": "https://tse1.mm.bing.net/th/id/OIP.sNxiPqUS0do2XrW5RYec_QHaFj?r=0&pid=Api&h=220&P=0",
+          "imageAlt": "Banana",
+          "displayOrder": 17
+        },
+        {
+          "slug": "fruit-orange",
+          "category": "fruit",
+          "name": "Orange",
+          "description": "A round citrus fruit with a juicy and sour-sweet taste.",
+          "highlight": "Famous for: Being rich in Vitamin C",
+          "uses": "Uses: Eaten fresh, squeezed for juice, and used in cooking.",
+          "imageUrl": "https://tse3.mm.bing.net/th/id/OIP.lpSQUk0RihJLaCWII_UDMgHaE8?r=0&pid=Api&h=220&P=0",
+          "imageAlt": "Orange",
+          "displayOrder": 18
+        },
+        {
+          "slug": "fruit-grapes",
+          "category": "fruit",
+          "name": "Grapes",
+          "description": "Small round fruits that grow in clusters on vines.",
+          "highlight": "Famous for: Sweet taste and use in many food products",
+          "uses": "Uses: Eaten fresh, dried as raisins, and used to make wine and juice.",
+          "imageUrl": "https://tse2.mm.bing.net/th/id/OIP.fhyD4jtcBVh88m8izvOPxQHaHl?r=0&pid=Api&h=220&P=0",
+          "imageAlt": "Grapes",
+          "displayOrder": 19
+        },
+        {
+          "slug": "desert-cactus",
+          "category": "desert",
+          "name": "Cactus",
+          "description": "A spiky plant that stores water in its thick stem.",
+          "highlight": "Famous for: Surviving with very little water",
+          "uses": "Uses: Grown as decorative plants, low water needs, easy care.",
+          "imageUrl": "https://m.media-amazon.com/images/I/81-aS2mS6AL.jpg",
+          "imageAlt": "Cactus",
+          "displayOrder": 20
+        },
+        {
+          "slug": "desert-aloe-vera",
+          "category": "desert",
+          "name": "Aloe Vera",
+          "description": "A thick-leaved succulent with a clear gel inside.",
+          "highlight": "Famous for: Medicinal uses",
+          "uses": "Uses: Treats burns, used in skincare, and made into juice.",
+          "imageUrl": "https://images.newscientist.com/wp-content/uploads/2023/12/19122456/SEI_184072256.jpg",
+          "imageAlt": "Aloe Vera",
+          "displayOrder": 21
+        },
+        {
+          "slug": "desert-jade-plant",
+          "category": "desert",
+          "name": "Jade Plant",
+          "description": "A succulent with thick, tree-like stems and round leaves.",
+          "highlight": "Famous for: Being a popular decorative succulent",
+          "uses": "Uses: Grown as a houseplant, symbolizes good luck.",
+          "imageUrl": "https://tse3.mm.bing.net/th/id/OIP.CX_G8vWqBjyYxsSBaJoITQHaEK?r=0&pid=Api&h=220&P=0",
+          "imageAlt": "Jade Plant",
+          "displayOrder": 22
+        },
+        {
+          "slug": "desert-agave",
+          "category": "desert",
+          "name": "Agave",
+          "description": "A large succulent with thick, pointed leaves.",
+          "highlight": "Famous for: Thick leaves and surviving dry conditions",
+          "uses": "Uses: Used for tequila, fibers, and as a garden plant.",
+          "imageUrl": "https://tse3.mm.bing.net/th/id/OIP.XfCKpnhYZ_N6-ldeNLwChgHaFj?r=0&pid=Api&h=220&P=0",
+          "imageAlt": "Agave",
+          "displayOrder": 23
+        }
+      ],
+      "backgrounds": [
+        {
+          "selector": ".herotext",
+          "imageUrl": "https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?q=80&w=927&auto=format&fit=crop"
+        },
+        {
+          "selector": ".box2",
+          "imageUrl": "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?q=80&w=1470&auto=format&fit=crop"
+        },
+        {
+          "selector": ".box3",
+          "imageUrl": "https://images.unsplash.com/photo-1446071103084-c257b5f70672?q=80&w=600&auto=format&fit=crop"
+        },
+        {
+          "selector": ".box4",
+          "imageUrl": "https://imgs.search.brave.com/I5PpO8jpODNKrsCW3MTS-oDrX1Ma7AeBQ1p3GRPb7ko/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9zdGF0/aWMudmVjdGVlenku/Y29tL3N5c3RlbS9y/ZXNvdXJjZXMvdGh1/bWJuYWlscy8wNDAv/NTc0Lzg3OC9zbWFs/bC9haS1nZW5lcmF0/ZWQtYS12aWJyYW50/LWJvdXF1ZXQtb2Yt/bXVsdGktY29sb3Jl/ZC1mbG93ZXJzLWJy/aW5ncy1uYXR1cmUt/YmVhdXR5LWdlbmVy/YXRlZC1ieS1haS1w/aG90by5qcGc"
+        },
+        {
+          "selector": ".box5",
+          "imageUrl": "https://imgs.search.brave.com/p1vBK5aQ72u09Y3SMywNZOH9JLUKd3LQokwrAK6YWQY/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly90aGVw/aG90b2FyZ3VzLmNv/bS93cC1jb250ZW50/L3VwbG9hZHMvMjAx/OC8xMC9wcmV0dHlm/bG93ZXJzMDQuanBn"
+        },
+        {
+          "selector": ".box6",
+          "imageUrl": "https://plus.unsplash.com/premium_photo-1673292293042-cafd9c8a3ab3?q=80&w=600&auto=format&fit=crop"
+        },
+        {
+          "selector": ".box7",
+          "imageUrl": "https://images.unsplash.com/photo-1520412099551-62b6bafeb5bb?q=80&w=687&auto=format&fit=crop"
+        },
+        {
+          "selector": ".box8",
+          "imageUrl": "https://imgs.search.brave.com/cYGTBFxZedX5i2LLOn_RjNKNLpn5zCO_Ka5Mliac_XE/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly90aGVh/ZmZvcmRhYmxlb3Jn/YW5pY3N0b3JlLmNv/bS9jZG4vc2hvcC9m/aWxlcy9JTUctMjAy/NjAyMjAtV0EwMDMy/LndlYnA_dj0xNzcy/MjgwMDA0JndpZHRo/PTEwMjQ"
+        },
+        {
+          "selector": ".box9",
+          "imageUrl": "https://images.unsplash.com/photo-1463320898484-cdee8141c787?q=80&w=600&auto=format&fit=crop"
+        },
+        {
+          "selector": ".box10",
+          "imageUrl": "https://images.unsplash.com/photo-1491147334573-44cbb4602074?q=80&w=600&auto=format&fit=crop"
+        },
+        {
+          "selector": ".box11",
+          "imageUrl": "https://imgs.search.brave.com/dY3G_-0KMOB70AcvcX9XcvumsSd5u6W8xSSy0zrZTaE/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9zdGF0/aWMudmVjdGVlenku/Y29tL3N5c3RlbS9y/ZXNvdXJjZXMvdGh1/bWJuYWlscy8wMDcv/NDc0Lzk5Ny9zbWFs/bC9waW5rLWZsb3dl/cnMtYmxvb21pbmct/YW5kLWxpZ2h0LXNv/ZnQtYmx1ci1pbi1m/YXJtLXBob3RvLmpw/Zw"
+        },
+        {
+          "selector": ".box12",
+          "imageUrl": "https://images.unsplash.com/photo-1508808703020-ef18109db02f?q=80&w=687&auto=format&fit=crop"
+        }
+      ]
+    },
+    {
+      "slug": "shop",
+      "content": {
+        "field1": "Shop - Plant Paradise",
+        "field2": "../index.html",
+        "field3": "Plant Paradise",
+        "field4": "../index.html",
+        "field5": "Home",
+        "field6": "../index.html#categories",
+        "field7": "Categories",
+        "field8": "./index.html",
+        "field9": "Shop",
+        "field10": "../contact/index.html",
+        "field11": "Contact",
+        "field12": "../login/index.html",
+        "field13": "Login",
+        "field14": "../register/index.html",
+        "field15": "Register",
+        "field16": "Plant Shop",
+        "field17": "Browse and purchase fresh plants for your home and garden.",
+        "field18": "0 items — Total: ₹0",
+        "field19": "Proceed to Checkout",
+        "field20": "🌿 Plant Paradise",
+        "field21": "Discover the beauty, healing power, and serenity of nature. Your complete guide to indoor plants, medicinal herbs, and gardening wonders.",
+        "field22": "#",
+        "field23": "Facebook",
+        "field24": "#",
+        "field25": "Instagram",
+        "field26": "Quick Links",
+        "field27": "../index.html",
+        "field28": "Home",
+        "field29": "../index.html#categories",
+        "field30": "Plant Categories",
+        "field31": "./index.html",
+        "field32": "Shop",
+        "field33": "../gallery/index.html",
+        "field34": "Gallery",
+        "field35": "../contact/index.html",
+        "field36": "Contact Us",
+        "field37": "../login/index.html",
+        "field38": "Login",
+        "field39": "Plant Types",
+        "field40": "../index.html#medicinal",
+        "field41": "Medicinal Plants",
+        "field42": "../index.html#edible",
+        "field43": "Edible Plants",
+        "field44": "../index.html#indoor",
+        "field45": "Indoor Plants",
+        "field46": "../index.html#flowering",
+        "field47": "Flowering Plants",
+        "field48": "../index.html#fruit",
+        "field49": "Fruit Plants",
+        "field50": "../index.html#desert",
+        "field51": "Desert Plants",
+        "field52": "Get in Touch",
+        "field53": " Haryana, India",
+        "field54": " plantparadise@gmail.com",
+        "field55": " +91 94527 37817",
+        "field56": " Mon - Sat: 9:00 AM - 6:00 PM",
+        "field57": "Subscribe for plant care tips:",
+        "field58": "Your email address",
+        "field59": "Join",
+        "field60": "© 2026 Plant Paradise. All rights reserved. Made with 💚 for plant lovers."
+      },
+      "plants": [],
+      "backgrounds": [],
+      "addToCartLabel": "Add to Cart"
+    }
+  ],
+  "categories": [
+    {
+      "slug": "medicinal",
+      "anchorId": "medicinal",
+      "name": "Medicinal Plants",
+      "description": "Plants used for health and healing.",
+      "imageUrl": "https://imgs.search.brave.com/dmYavMiYMWlpQufFnCKOEbx8j1TkQaKcH6oTK8waz-o/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5pc3RvY2twaG90/by5jb20vaWQvMTI0/NTA5NTQ3NC9waG90/by9ob2x5LWJhc2ls/LW9yLXR1bHNpLWxl/YXZlcy53ZWJwP2E9/MSZiPTEmcz02MTJ4/NjEyJnc9MCZrPTIw/JmM9MmswRU1wVHFM/MDFoWXhGR0VVWWlu/QXhSbGJDNEROSDBq/Yk9BaWxfaG9pZz0",
+      "imageAlt": "Medicinal Plants",
+      "displayOrder": 0
+    },
+    {
+      "slug": "edible",
+      "anchorId": "edible",
+      "name": "Edible Plants",
+      "description": "Plants we eat as food.",
+      "imageUrl": "https://images.unsplash.com/photo-1467020323552-36f7bf0e30e6?q=80&w=400&auto=format&fit=crop",
+      "imageAlt": "Edible Plants",
+      "displayOrder": 1
+    },
+    {
+      "slug": "indoor",
+      "anchorId": "indoor",
+      "name": "Indoor Plants",
+      "description": "Plants that grow well inside homes.",
+      "imageUrl": "https://images.unsplash.com/photo-1485955900006-10f4d324d411?q=80&w=400&auto=format&fit=crop",
+      "imageAlt": "Indoor Plants",
+      "displayOrder": 2
+    },
+    {
+      "slug": "flowering",
+      "anchorId": "flowering",
+      "name": "Flowering Plants",
+      "description": "Plants that produce beautiful flowers.",
+      "imageUrl": "https://imgs.search.brave.com/5r67zpp9bwyxe20yaR-herngMZcS3RF_DVyHGbZM-Rc/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9zdGF0/aWMudmVjdGVlenku/Y29tL3N5c3RlbS9y/ZXNvdXJjZXMvdGh1/bWJuYWlscy8wNjcv/NzIzLzQ3NS9zbWFs/bC9hLWNsb3NlLXVw/LW9mLWEtYnVuY2gt/b2YtY29sb3JmdWwt/Zmxvd2Vycy1waG90/by5qcGVn",
+      "imageAlt": "Flowering Plants",
+      "displayOrder": 3
+    },
+    {
+      "slug": "fruit",
+      "anchorId": "fruit",
+      "name": "Fruit Plants",
+      "description": "Plants that grow delicious fruits.",
+      "imageUrl": "https://images.unsplash.com/photo-1560806887-1e4cd0b6cbd6?q=80&w=400&auto=format&fit=crop",
+      "imageAlt": "Fruit Plants",
+      "displayOrder": 4
+    },
+    {
+      "slug": "desert",
+      "sectionHeading": "Desert Plants / Succulents",
+      "anchorId": "desert",
+      "name": "Desert Plants",
+      "description": "Plants that survive in dry places.",
+      "imageUrl": "https://imgs.search.brave.com/21hKJYD4Gbdg6Xg6xejRdJYaNQGAGhAIatoKNlhkCeI/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly90NC5m/dGNkbi5uZXQvanBn/LzAzLzE0Lzk1LzA1/LzM2MF9GXzMxNDk1/MDU0M19CZk1rREk3/ZTZaSVJpQ01GTjYy/WWJ4MzhoTUluQ2RL/RC5qcGc",
+      "imageAlt": "Desert Plants",
+      "displayOrder": 5
+    }
+  ],
+  "products": [
+    {
+      "slug": "medicinal-aloe-vera",
+      "category": "medicinal",
+      "name": "Aloe Vera",
+      "description": "Succulent plant with thick, fleshy leaves.",
+      "imageUrl": "https://4.imimg.com/data4/KC/HQ/MY-26546391/alovera-plants-1000x1000.jpg",
+      "imageAlt": "Aloe Vera",
+      "price": 199,
+      "displayOrder": 0
+    },
+    {
+      "slug": "medicinal-tulsi",
+      "category": "medicinal",
+      "name": "Tulsi",
+      "description": "Sacred herb grown in Indian homes.",
+      "imageUrl": "https://i.etsystatic.com/21875347/r/il/06275b/2680539925/il_1588xN.2680539925_q2re.jpg",
+      "imageAlt": "Tulsi",
+      "price": 149,
+      "displayOrder": 1
+    },
+    {
+      "slug": "medicinal-neem",
+      "category": "medicinal",
+      "name": "Neem",
+      "description": "Tree known for bitter leaves and wide uses.",
+      "imageUrl": "https://i.pinimg.com/originals/18/3a/61/183a61b5c4d7a0ca3856ca7c422d52df.jpg",
+      "imageAlt": "Neem",
+      "price": 179,
+      "displayOrder": 2
+    },
+    {
+      "slug": "medicinal-mint",
+      "category": "medicinal",
+      "name": "Mint",
+      "description": "Refreshing herb with strong smell.",
+      "imageUrl": "https://keyassets.timeincuk.net/inspirewp/live/wp-content/uploads/sites/8/2019/04/C8AR9P.jpg",
+      "imageAlt": "Mint",
+      "price": 99,
+      "displayOrder": 3
+    },
+    {
+      "slug": "edible-spinach",
+      "category": "edible",
+      "name": "Spinach",
+      "description": "Green leafy vegetable eaten worldwide.",
+      "imageUrl": "https://tse4.mm.bing.net/th/id/OIP.u92QgP_oUKJCrqP646JJPgHaHo?r=0&pid=Api&h=220&P=0",
+      "imageAlt": "Spinach",
+      "price": 49,
+      "displayOrder": 4
+    },
+    {
+      "slug": "edible-carrot",
+      "category": "edible",
+      "name": "Carrot",
+      "description": "Bright orange root vegetable, crunchy.",
+      "imageUrl": "https://tse1.mm.bing.net/th/id/OIP.XyWdR2Y-evtyArYy-Hz3xgHaHa?r=0&pid=Api&h=220&P=0",
+      "imageAlt": "Carrot",
+      "price": 39,
+      "displayOrder": 5
+    },
+    {
+      "slug": "edible-broccoli",
+      "category": "edible",
+      "name": "Broccoli",
+      "description": "Green tree-like vegetable with mild taste.",
+      "imageUrl": "https://natashaskitchen.com/wp-content/uploads/2022/09/Roasted-Broccoli-SQ.jpg",
+      "imageAlt": "Broccoli",
+      "price": 59,
+      "displayOrder": 6
+    },
+    {
+      "slug": "edible-potato",
+      "category": "edible",
+      "name": "Potato",
+      "description": "Starchy tuber eaten worldwide.",
+      "imageUrl": "https://tse4.mm.bing.net/th/id/OIP.fc-rg5qIh2JRZvI81NYt5gHaHU?r=0&pid=Api&h=220&P=0",
+      "imageAlt": "Potato",
+      "price": 29,
+      "displayOrder": 7
+    },
+    {
+      "slug": "indoor-snake-plant",
+      "category": "indoor",
+      "name": "Snake Plant",
+      "description": "Tall upright plant with sword-like leaves.",
+      "imageUrl": "https://tse3.mm.bing.net/th/id/OIP.8WxCH9q1uUZs5eo6f6dnOQHaFj?r=0&pid=Api&h=220&P=0",
+      "imageAlt": "Snake Plant",
+      "price": 299,
+      "displayOrder": 8
+    },
+    {
+      "slug": "indoor-money-plant",
+      "category": "indoor",
+      "name": "Money Plant",
+      "description": "Popular trailing plant with round green leaves.",
+      "imageUrl": "https://m.media-amazon.com/images/S/aplus-media-library-service-media/7a566d18-51d2-40b8-adf7-6981fef64af9.__CR0,0,970,600_PT0_SX970_V1___.png",
+      "imageAlt": "Money Plant",
+      "price": 249,
+      "displayOrder": 9
+    },
+    {
+      "slug": "indoor-spider-plant",
+      "category": "indoor",
+      "name": "Spider Plant",
+      "description": "Long arching leaves with small white flowers.",
+      "imageUrl": "https://www.seasol.com.au/wp-content/uploads/2021/11/iStock-1390211292-scaled.jpg",
+      "imageAlt": "Spider Plant",
+      "price": 199,
+      "displayOrder": 10
+    },
+    {
+      "slug": "indoor-peace-lily",
+      "category": "indoor",
+      "name": "Peace Lily",
+      "description": "Dark green leaves and beautiful white flowers.",
+      "imageUrl": "https://tse3.mm.bing.net/th/id/OIP.hQ8eOslbINs1MIykneL32QHaE8?r=0&pid=Api&h=220&P=0",
+      "imageAlt": "Peace Lily",
+      "price": 279,
+      "displayOrder": 11
+    },
+    {
+      "slug": "flowering-rose",
+      "category": "flowering",
+      "name": "Rose",
+      "description": "Classic flower with sweet fragrance.",
+      "imageUrl": "https://tse2.mm.bing.net/th/id/OIP.SY_gmikDr7XfaAJIaUNXGAHaHa?r=0&pid=Api&h=220&P=0",
+      "imageAlt": "Rose",
+      "price": 349,
+      "displayOrder": 12
+    },
+    {
+      "slug": "flowering-sunflower",
+      "category": "flowering",
+      "name": "Sunflower",
+      "description": "Large bright yellow flower.",
+      "imageUrl": "https://cdn.wallpapersafari.com/9/91/pmkLiv.jpg",
+      "imageAlt": "Sunflower",
+      "price": 149,
+      "displayOrder": 13
+    },
+    {
+      "slug": "flowering-hibiscus",
+      "category": "flowering",
+      "name": "Hibiscus",
+      "description": "Tropical plant with colorful flowers.",
+      "imageUrl": "https://tse1.mm.bing.net/th/id/OIP.KhDEBylDGLEETj4ciqw-yQHaFj?r=0&pid=Api&h=220&P=0",
+      "imageAlt": "Hibiscus",
+      "price": 199,
+      "displayOrder": 14
+    },
+    {
+      "slug": "flowering-jasmine",
+      "category": "flowering",
+      "name": "Jasmine",
+      "description": "Vine with small white sweet-smelling flowers.",
+      "imageUrl": "https://www.petalrepublic.com/wp-content/uploads/2021/04/Ultimate-Guide-to-Jasmine-Flower-Meaning-Types-and-Uses-1536x1024.jpeg",
+      "imageAlt": "Jasmine",
+      "price": 249,
+      "displayOrder": 15
+    },
+    {
+      "slug": "fruit-mango",
+      "category": "fruit",
+      "name": "Mango",
+      "description": "Tropical fruit tree, sweet yellow fruit.",
+      "imageUrl": "https://tse3.mm.bing.net/th/id/OIP.mup_rcvSBlZvFKIG3mxdXAHaE7?r=0&pid=Api&h=220&P=0",
+      "imageAlt": "Mango",
+      "price": 299,
+      "displayOrder": 16
+    },
+    {
+      "slug": "fruit-banana",
+      "category": "fruit",
+      "name": "Banana",
+      "description": "Long curved fruit with soft sweet flesh.",
+      "imageUrl": "https://tse1.mm.bing.net/th/id/OIP.sNxiPqUS0do2XrW5RYec_QHaFj?r=0&pid=Api&h=220&P=0",
+      "imageAlt": "Banana",
+      "price": 199,
+      "displayOrder": 17
+    },
+    {
+      "slug": "fruit-orange",
+      "category": "fruit",
+      "name": "Orange",
+      "description": "Round citrus fruit, juicy and sour-sweet.",
+      "imageUrl": "https://tse3.mm.bing.net/th/id/OIP.lpSQUk0RihJLaCWII_UDMgHaE8?r=0&pid=Api&h=220&P=0",
+      "imageAlt": "Orange",
+      "price": 199,
+      "displayOrder": 18
+    },
+    {
+      "slug": "fruit-grapes",
+      "category": "fruit",
+      "name": "Grapes",
+      "description": "Small round fruits growing in clusters.",
+      "imageUrl": "https://tse2.mm.bing.net/th/id/OIP.fhyD4jtcBVh88m8izvOPxQHaHl?r=0&pid=Api&h=220&P=0",
+      "imageAlt": "Grapes",
+      "price": 249,
+      "displayOrder": 19
+    },
+    {
+      "slug": "desert-cactus",
+      "category": "desert",
+      "name": "Cactus",
+      "description": "Spiky plant storing water in thick stem.",
+      "imageUrl": "https://m.media-amazon.com/images/I/81-aS2mS6AL.jpg",
+      "imageAlt": "Cactus",
+      "price": 149,
+      "displayOrder": 20
+    },
+    {
+      "slug": "desert-aloe-vera",
+      "category": "desert",
+      "name": "Aloe Vera",
+      "description": "Thick-leaved succulent with clear gel.",
+      "imageUrl": "https://images.newscientist.com/wp-content/uploads/2023/12/19122456/SEI_184072256.jpg",
+      "imageAlt": "Aloe Vera Desert",
+      "price": 199,
+      "displayOrder": 21
+    },
+    {
+      "slug": "desert-jade-plant",
+      "category": "desert",
+      "name": "Jade Plant",
+      "description": "Succulent with thick tree-like stems.",
+      "imageUrl": "https://tse3.mm.bing.net/th/id/OIP.CX_G8vWqBjyYxsSBaJoITQHaEK?r=0&pid=Api&h=220&P=0",
+      "imageAlt": "Jade Plant",
+      "price": 199,
+      "displayOrder": 22
+    },
+    {
+      "slug": "desert-agave",
+      "category": "desert",
+      "name": "Agave",
+      "description": "Large succulent with thick pointed leaves.",
+      "imageUrl": "https://tse3.mm.bing.net/th/id/OIP.XfCKpnhYZ_N6-ldeNLwChgHaFj?r=0&pid=Api&h=220&P=0",
+      "imageAlt": "Agave",
+      "price": 179,
+      "displayOrder": 23
+    }
+  ]
+}

@@ -1,7 +1,6 @@
 const express = require('express');
 const path = require('path');
 const cors = require('cors');
-require('dotenv').config();
 
 const connectDB = require('./config/db');
 const authRoutes = require('./routes/authRoutes');
@@ -11,7 +10,11 @@ const contactRoutes = require('./routes/contactRoutes');
 const app = express();
 
 // Connect to Database
-connectDB();
+async function connectWithRetry() {
+  try { await connectDB(); }
+  catch { setTimeout(connectWithRetry, 10000).unref(); }
+}
+const initialConnection = connectWithRetry();
 
 // Middleware
 app.use(cors());
@@ -25,6 +28,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/api/auth', authRoutes);
 app.use('/api/orders', orderRoutes);
 app.use('/api/contact', contactRoutes);
+app.use('/api/content', async (req, res, next) => {
+  // Avoid returning a startup 503 while the initial connection is still opening.
+  await initialConnection;
+  try { await connectDB(); } catch {} // Retry also recovers a failed initial connection.
+  next();
+}, require('./routes/contentRoutes'));
 
 // Custom 404 page for unmatched routes
 app.use((req, res) => {
