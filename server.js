@@ -1,55 +1,67 @@
 const express = require('express');
-const path = require('path');
-const cors = require('cors');
-
+const path = require('node:path');
 const connectDB = require('./config/db');
-const authRoutes = require('./routes/authRoutes');
-const orderRoutes = require('./routes/orderRoutes');
-const contactRoutes = require('./routes/contactRoutes');
-
+const { sameOrigin, authenticate, adminOnly, errorHandler } = require('./middleware/security');
 const app = express();
-
-// Connect to Database
-async function connectWithRetry() {
-  try { await connectDB(); }
-  catch { setTimeout(connectWithRetry, 10000).unref(); }
-}
-const initialConnection = connectWithRetry();
-
-// Middleware
-app.use(cors());
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-
-// Serve static frontend files
-app.use(express.static(path.join(__dirname, 'public')));
-
-// API Routes
-app.use('/api/auth', authRoutes);
-app.use('/api/orders', orderRoutes);
-app.use('/api/contact', contactRoutes);
-app.use('/api/content', async (req, res, next) => {
-  // Avoid returning a startup 503 while the initial connection is still opening.
-  await initialConnection;
-  try { await connectDB(); } catch {} // Retry also recovers a failed initial connection.
+app.disable('x-powered-by');
+if (process.env.VERCEL) app.set('trust proxy', 1);
+app.use((req, res, next) => {
+  res.set('X-Content-Type-Options', 'nosniff');
+  res.set('X-Frame-Options', 'DENY');
+  res.set('Referrer-Policy', 'strict-origin-when-cross-origin');
   next();
-}, require('./routes/contentRoutes'));
-
-// Custom 404 page for unmatched routes
-app.use((req, res) => {
-  if (req.accepts('html')) {
-    return res.status(404).sendFile(path.join(__dirname, 'public', '404.html'));
+});
+app.use('/api', sameOrigin, async (req, res, next) => {
+  res.set('Cache-Control', 'no-store');
+  try {
+    await connectDB();
+    next();
+  } catch {
+    res
+      .status(503)
+      .json({ success: false, message: 'Database unavailable. Please retry shortly.' });
   }
-  return res.status(404).json({ success: false, message: 'Resource not found' });
 });
-
-// Start Server
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => {
-  console.log(`===============================================`);
-  console.log(` Plant Paradise Server running on port ${PORT}`);
-  console.log(` Local URL: http://localhost:${PORT}`);
-  console.log(`===============================================`);
+app.use(express.json({ limit: '256kb' }));
+app.use('/api/auth', require('./routes/authRoutes'));
+app.use('/api/admin', require('./routes/adminRoutes'));
+app.use('/api/orders', require('./routes/orderRoutes'));
+app.use('/api/contact', require('./routes/contactRoutes'));
+app.use('/api/content', require('./routes/contentRoutes'));
+app.use('/api', require('./routes/catalogRoutes'));
+app.get(
+  ['/admin', '/admin/*'],
+  async (req, res, next) => {
+    res.set('Cache-Control', 'no-store');
+    try {
+      await connectDB();
+      next();
+    } catch {
+      res.status(503).send('Database unavailable. Please retry shortly.');
+    }
+  },
+  (req, res, next) =>
+    authenticate(req, res, (err) => {
+      if (err?.status === 401) return res.redirect('/login/?next=admin');
+      if (err) return next(err);
+      next();
+    }),
+  adminOnly,
+  (req, res) => res.sendFile(path.join(__dirname, 'views', 'admin.html')),
+);
+app.get(['/checkout', '/my-orders', '/orders/confirmation/:id'], (req, res) => {
+  res.set('Cache-Control', 'no-store');
+  res.sendFile(path.join(__dirname, 'views', 'commerce.html'));
 });
-
+app.use(express.static(path.join(__dirname, 'public')));
+app.use((req, res) =>
+  req.path.startsWith('/api/')
+    ? res.status(404).json({ success: false, message: 'Resource not found.' })
+    : res.status(404).sendFile(path.join(__dirname, 'public', '404.html')),
+);
+app.use(errorHandler);
+if (require.main === module)
+  app.listen(process.env.PORT || 3000, () =>
+    console.log('Plant Paradise listening on port ' + (process.env.PORT || 3000)),
+  );
 module.exports = app;
