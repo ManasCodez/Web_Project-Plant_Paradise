@@ -1,116 +1,93 @@
 const express = require('express');
 const bcrypt = require('bcryptjs');
-const jwt = require('jsonwebtoken');
 const User = require('../models/User');
-
+const {
+  asyncRoute,
+  fail,
+  secret,
+  issueSession,
+  authenticate,
+  cookieOptions,
+  rateLimit,
+} = require('../middleware/security');
+const { string } = require('../services/catalog');
 const router = express.Router();
-
-// Helper to generate JWT token
-const generateToken = (userId) => {
-  return jwt.sign({ id: userId }, process.env.JWT_SECRET || 'plant_paradise_secret_key_2026_jwt', {
-    expiresIn: '7d',
-  });
-};
-
-// @route   POST /api/auth/register
-// @desc    Register a new user
-// @access  Public
-router.post('/register', async (req, res) => {
-  try {
-    const { fullname, username, email, password, dob } = req.body;
-
-    if (!fullname || !username || !email || !password) {
-      return res.status(400).json({ success: false, message: 'Please provide all required fields' });
+function passwordValue(value, registration = false) {
+  if (
+    typeof value !== 'string' ||
+    value.length > 128 ||
+    (registration && Buffer.byteLength(value, 'utf8') > 72)
+  )
+    throw fail(400, 'Invalid password length (maximum 72 UTF-8 bytes for new accounts).');
+  return value;
+}
+const profile = (u) => ({
+  id: u._id,
+  fullname: u.fullname,
+  username: u.username,
+  email: u.email,
+  role: u.role || 'user',
+});
+router.post(
+  '/register',
+  rateLimit('register', 15),
+  asyncRoute(async (req, res) => {
+    secret();
+    const fullname = string(req.body.fullname, 'full name', 120),
+      username = string(req.body.username, 'username', 80).toLowerCase();
+    const email = string(req.body.email, 'email', 254).toLowerCase(),
+      password = passwordValue(req.body.password, true);
+    if (
+      !fullname ||
+      !/^[a-z0-9_.-]{2,80}$/.test(username) ||
+      !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email) ||
+      password.length < 6
+    )
+      throw fail(
+        400,
+        'Provide a valid name, username, email and password of at least six characters.',
+      );
+    let dob;
+    if (req.body.dob) {
+      dob = new Date(string(req.body.dob, 'date of birth', 30));
+      if (!Number.isFinite(+dob) || dob > new Date()) throw fail(400, 'Invalid date of birth.');
     }
-
-    if (password.length < 6) {
-      return res.status(400).json({ success: false, message: 'Password must be at least 6 characters long' });
-    }
-
-    // Check if email or username already exists
-    const existingUser = await User.findOne({
-      $or: [{ email: email.toLowerCase() }, { username: username.toLowerCase() }],
-    });
-
-    if (existingUser) {
-      if (existingUser.email === email.toLowerCase()) {
-        return res.status(400).json({ success: false, message: 'An account with this email already exists' });
-      }
-      return res.status(400).json({ success: false, message: 'Username is already taken' });
-    }
-
-    // Hash password
-    const salt = await bcrypt.genSalt(10);
-    const hashedPassword = await bcrypt.hash(password, salt);
-
-    // Create user
-    const newUser = await User.create({
+    const user = await User.create({
       fullname,
       username,
       email,
-      password: hashedPassword,
-      dob: dob ? new Date(dob) : undefined,
+      password: await bcrypt.hash(password, 12),
+      dob,
+      role: 'user',
     });
-
-    const token = generateToken(newUser._id);
-
-    return res.status(201).json({
-      success: true,
-      message: 'Account registered successfully',
-      token,
-      user: {
-        id: newUser._id,
-        fullname: newUser.fullname,
-        username: newUser.username,
-        email: newUser.email,
-      },
-    });
-  } catch (error) {
-    console.error('Registration error:', error);
-    return res.status(500).json({ success: false, message: 'Server error during registration', error: error.message });
-  }
-});
-
-// @route   POST /api/auth/login
-// @desc    Authenticate user & get token
-// @access  Public
-router.post('/login', async (req, res) => {
-  try {
-    const { email, password } = req.body;
-
-    if (!email || !password) {
-      return res.status(400).json({ success: false, message: 'Please enter both email and password' });
-    }
-
-    // Find user by email
-    const user = await User.findOne({ email: email.toLowerCase() });
-    if (!user) {
-      return res.status(401).json({ success: false, message: 'Invalid email or password' });
-    }
-
-    // Compare password
-    const isMatch = await bcrypt.compare(password, user.password);
-    if (!isMatch) {
-      return res.status(401).json({ success: false, message: 'Invalid email or password' });
-    }
-
-    const token = generateToken(user._id);
-
-    return res.status(200).json({
-      success: true,
-      message: 'Login successful',
-      token,
-      user: {
-        id: user._id,
-        fullname: user.fullname,
-        username: user.username,
-        email: user.email,
-      },
-    });
-  } catch (error) {
-    console.error('Login error:', error);
-    return res.status(500).json({ success: false, message: 'Server error during login', error: error.message });
-  }
-});
-
+    res.status(201).json({ success: true, user: profile(user) });
+  }),
+);
+router.post(
+  '/login',
+  rateLimit('login', 30),
+  asyncRoute(async (req, res) => {
+    secret();
+    const email = string(req.body.email, 'email', 254).toLowerCase(),
+      password = passwordValue(req.body.password);
+    const user = await User.findOne({ email });
+    const matches = await bcrypt.compare(
+      password,
+      user?.password || '$2b$12$zvX7N3HN3njY7wxrG0gta.JFlSTvnc2pEIQcGkO8yEfIUjwpVopue',
+    );
+    if (!user || !matches) throw fail(401, 'Invalid email or password.');
+    issueSession(res, user);
+    res.json({ success: true, user: profile(user) });
+  }),
+);
+router.get('/me', authenticate, (req, res) => res.json({ success: true, user: profile(req.user) }));
+router.post(
+  '/logout',
+  authenticate,
+  asyncRoute(async (req, res) => {
+    await User.updateOne({ _id: req.user._id }, { $inc: { sessionVersion: 1 } });
+    res.clearCookie('pp_session', cookieOptions());
+    res.json({ success: true });
+  }),
+);
 module.exports = router;

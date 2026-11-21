@@ -1,5 +1,7 @@
 # MongoDB page content
 
+The admin upgrade supersedes direct database editing instructions below. ShopProduct now supplies both public plant views; HomePage.plants is retained only as the migration source. See [ADMIN.md](./ADMIN.md) for the current model, migration, stock and admin workflow.
+
 From `Web_Project-Plant_Paradise` in PowerShell:
 
 ```powershell
@@ -9,9 +11,9 @@ npm.cmd run seed:content
 npm.cmd start
 ```
 
-Open `http://localhost:5000/` and `http://localhost:5000/Shop/` (or the configured PORT). Serve these pages through Express, rather than opening the HTML files directly.
+Open `http://localhost:3000/` and `http://localhost:3000/Shop/` (or the configured PORT). Serve these pages through Express, rather than opening the HTML files directly.
 
-The application loads `.env` from the project directory regardless of the terminal working directory. If your network's DNS times out when resolving an Atlas `mongodb+srv` hostname, you can set `MONGODB_DNS_SERVERS=1.1.1.1,8.8.8.8` in that file. This changes only the Node process's DNS resolver. The server retries an initially failed database connection every ten seconds; use the page's Retry button once connectivity is restored.
+The application loads `.env` from the project directory regardless of the terminal working directory. If your network's DNS times out when resolving an Atlas `mongodb+srv` hostname, you can set `MONGODB_DNS_SERVERS=1.1.1.1,8.8.8.8` in that file. This changes only the Node process's DNS resolver. API requests retry a failed database connection; use the page's Retry button once connectivity is restored.
 
 Run `npm.cmd run test:content` for the content migration, DOM rendering, search, cart, safe rendering, seeding adapter, and HTTP API checks. DOM tests use jsdom, a development dependency; they do not replace visual browser inspection. The seeding adapter test verifies insert-only behavior without requiring a MongoDB installation. Live database verification still requires MongoDB.
 
@@ -41,4 +43,4 @@ The explicit seed command connects with the existing `config/db.js` configuratio
 4. On Shop, add products, adjust quantities, and complete a test order. Verify totals, saved order, and cart reset. A failed order request should retain the cart.
 5. Stop MongoDB, reload, and verify an error with Retry. Restart MongoDB and use Retry; content requests attempt to reconnect. In an isolated test database, verify empty collections and missing page documents produce the documented states.
 
-The checkout endpoint retains the existing order contract. This change does not add server-side price verification or change existing order access controls.
+The admin upgrade now validates checkout prices and stock on the server and protects order listings with admin authorization. See ADMIN.md.

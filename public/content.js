@@ -20,8 +20,10 @@
   function image(record) {
     const img = element('img');
     const url = safeURL(record.imageUrl, true);
-    if (url) img.src = url;
+    if (url) img.src = url; else if (!record.imageUrl) img.src = '/fallback-plant.svg';
     img.alt = record.imageAlt || record.name || '';
+    img.loading = 'lazy'; img.decoding = 'async';
+    img.addEventListener('error', () => { if (!img.src.endsWith('/fallback-plant.svg')) img.src = '/fallback-plant.svg'; });
     return img;
   }
   function applyPage(data) {
@@ -64,7 +66,7 @@
       const plants = (data.plants || []).filter(p => p.category === category.slug).sort((a,b) => a.displayOrder-b.displayOrder);
       for (const plant of plants) {
         const plantCard = element('div', 'plant-card');
-        plantCard.append(image(plant), element('h3', '', plant.name), element('p', '', plant.description), element('p', 'highlight', plant.highlight), element('p', 'uses', plant.uses)); grid.append(plantCard);
+        plantCard.append(image(plant), element('h3', '', plant.name), element('p', '', plant.shortDescription || plant.description), element('p', 'highlight', plant.famousFor || plant.highlight), element('p', 'uses', plant.uses)); grid.append(plantCard);
       }
       if (!plants.length) grid.append(element('p', '', 'No plants in this category yet.'));
       section.append(element('h2', '', category.sectionHeading || category.name), grid); sections.append(section);
@@ -79,6 +81,7 @@
       const card = element('div', 'product-card'); card.dataset.productId = product._id;
       const info = element('div', 'product-info');
       const add = element('button', 'add-to-cart', data.addToCartLabel || 'Add to Cart'); add.type = 'button';
+      if (product.stock === 0 || product.availability === 'unavailable') { add.disabled = true; add.textContent = 'Out of Stock'; }
       info.append(element('h3', '', product.name), element('p', '', product.description), element('div', 'product-price', money(product.price)), add);
       card.append(image(product), info); grid.append(card);
     }
@@ -92,7 +95,7 @@
   async function load() {
     status.replaceChildren(element('span', '', 'Loading page content…')); status.hidden = false;
     if (location.protocol === 'file:') {
-      status.textContent = 'Open this page through the Node server at http://localhost:5000/ so it can load MongoDB content.';
+      status.textContent = 'Open this page through the Node server at http://localhost:3000/ so it can load MongoDB content.';
       return;
     }
     try {

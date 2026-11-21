@@ -1,102 +1,85 @@
-// auth-state.js - Manages navigation state across all Plant Paradise pages
-
+﻿// Display data is cached for navigation only; all authorization is server-side.
 document.addEventListener('DOMContentLoaded', () => {
-    updateNavAuth();
+  updateNavAuth();
+  if (location.protocol !== 'file:') {
+    fetch('/api/auth/me', { cache: 'no-store' })
+      .then(async (response) => {
+        if (response.ok) {
+          const body = await response.json();
+          if (body.user) localStorage.setItem('plantParadiseUser', JSON.stringify(body.user));
+        } else if (response.status === 401) {
+          localStorage.removeItem('plantParadiseUser');
+          localStorage.removeItem('plantParadiseToken');
+        }
+        updateNavAuth();
+      })
+      .catch(() => {});
+  }
 });
-
 function updateNavAuth() {
-    const navLinks = document.querySelector('.nav-links');
-    if (!navLinks) return;
-
-    const userRaw = localStorage.getItem('plantParadiseUser');
-    let user = null;
-    if (userRaw) {
-        try {
-            user = JSON.parse(userRaw);
-        } catch (e) {
-            localStorage.removeItem('plantParadiseUser');
-            localStorage.removeItem('plantParadiseToken');
-        }
+  if (location.protocol === 'file:') return;
+  const nav = document.querySelector('.nav-links');
+  if (!nav) return;
+  let user;
+  try {
+    user = JSON.parse(localStorage.getItem('plantParadiseUser'));
+  } catch {
+    localStorage.removeItem('plantParadiseUser');
+  }
+  for (const li of nav.querySelectorAll('li')) {
+    if (['login', 'register'].includes(li.textContent.trim().toLowerCase()))
+      li.style.display = user?.email ? 'none' : '';
+  }
+  document.getElementById('nav-user-item')?.remove();
+  if (!user?.email) return;
+  const li = document.createElement('li');
+  li.id = 'nav-user-item';
+  li.style.cssText = 'display:inline-flex;align-items:center;gap:8px';
+  const label = document.createElement('span');
+  label.style.cssText =
+    'color:#2e7d32;font-weight:600;font-size:.95rem;display:inline-flex;align-items:center;gap:4px';
+  const icon = document.createElement('i');
+  icon.className = 'fa-solid fa-user-circle';
+  label.append(
+    icon,
+    document.createTextNode(String(user.fullname || user.username || user.email).split(' ')[0]),
+  );
+  li.append(label);
+  const orders = document.createElement('a');
+  orders.href = '/my-orders';
+  orders.textContent = 'My Orders';
+  li.append(orders);
+  if (user.role === 'admin') {
+    const link = document.createElement('a');
+    link.href = '/admin';
+    link.textContent = 'Admin';
+    li.append(link);
+  }
+  const button = document.createElement('button');
+  button.type = 'button';
+  button.id = 'nav-logout-btn';
+  button.textContent = 'Logout';
+  button.style.cssText =
+    'background:#c62828;color:#fff;padding:5px 12px;border:0;border-radius:20px;font-size:.85rem;font-weight:500;margin-left:6px;cursor:pointer';
+  button.onclick = async () => {
+    if (!confirm('Are you sure you want to log out?')) return;
+    button.disabled = true;
+    try {
+      const response = await fetch('/api/auth/logout', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: '{}',
+      });
+      if (!response.ok && response.status !== 401) throw Error('Logout failed. Please retry.');
+      localStorage.removeItem('plantParadiseUser');
+      localStorage.removeItem('plantParadiseToken');
+      updateNavAuth();
+      location.href = '/';
+    } catch (error) {
+      alert(error.message);
+      button.disabled = false;
     }
-
-    // Find login and register link items
-    const allListItems = Array.from(navLinks.querySelectorAll('li'));
-    
-    let loginLi = null;
-    let registerLi = null;
-
-    allListItems.forEach(li => {
-        const text = li.textContent.trim().toLowerCase();
-        if (text === 'login') loginLi = li;
-        if (text === 'register') registerLi = li;
-    });
-
-    if (user && user.email) {
-        // Hide or remove Login and Register links
-        if (loginLi) loginLi.style.display = 'none';
-        if (registerLi) registerLi.style.display = 'none';
-
-        // Check if user badge/logout already added
-        if (!document.getElementById('nav-user-item')) {
-            const userLi = document.createElement('li');
-            userLi.id = 'nav-user-item';
-            userLi.style.display = 'inline-flex';
-            userLi.style.alignItems = 'center';
-            userLi.style.gap = '8px';
-
-            const displayName = user.fullname ? user.fullname.split(' ')[0] : (user.username || user.email);
-
-            userLi.innerHTML = `
-                <span style="color: #2e7d32; font-weight: 600; font-size: 0.95rem; display: inline-flex; align-items: center; gap: 4px;">
-                    <i class="fa-solid fa-user-circle"></i> ${escapeHTML(displayName)}
-                </span>
-                <a href="javascript:void(0)" id="nav-logout-btn" style="
-                    background: #c62828;
-                    color: #fff;
-                    padding: 5px 12px;
-                    border-radius: 20px;
-                    text-decoration: none;
-                    font-size: 0.85rem;
-                    font-weight: 500;
-                    margin-left: 6px;
-                    transition: background 0.2s;
-                ">Logout</a>
-            `;
-
-            navLinks.appendChild(userLi);
-
-            const logoutBtn = document.getElementById('nav-logout-btn');
-            if (logoutBtn) {
-                logoutBtn.addEventListener('mouseenter', () => logoutBtn.style.background = '#b71c1c');
-                logoutBtn.addEventListener('mouseleave', () => logoutBtn.style.background = '#c62828');
-                logoutBtn.addEventListener('click', () => {
-                    if (confirm('Are you sure you want to log out?')) {
-                        localStorage.removeItem('plantParadiseUser');
-                        localStorage.removeItem('plantParadiseToken');
-                        alert('You have logged out.');
-                        // Redirect to home page
-                        window.location.href = window.location.pathname.includes('/public/') ? '/public/' : '/';
-                    }
-                });
-            }
-        }
-    } else {
-        // Not logged in: show Login & Register
-        if (loginLi) loginLi.style.display = '';
-        if (registerLi) registerLi.style.display = '';
-        const userLi = document.getElementById('nav-user-item');
-        if (userLi) userLi.remove();
-    }
-}
-
-function escapeHTML(str) {
-    return str.replace(/[&<>'"]/g, 
-        tag => ({
-            '&': '&amp;',
-            '<': '&lt;',
-            '>': '&gt;',
-            "'": '&#39;',
-            '"': '&quot;'
-        }[tag] || tag)
-    );
+  };
+  li.append(button);
+  nav.append(li);
 }

@@ -2,6 +2,8 @@ const mongoose = require('mongoose');
 
 const userSchema = new mongoose.Schema(
   {
+    role: { type: String, enum: ['user', 'admin'], default: 'user' },
+    sessionVersion: { type: Number, default: 0 },
     fullname: {
       type: String,
       required: [true, 'Full name is required'],
@@ -26,13 +28,24 @@ const userSchema = new mongoose.Schema(
       required: [true, 'Password is required'],
       minlength: 6,
     },
+    savedAddress: {
+      name: String,
+      phone: String,
+      addressLine1: String,
+      addressLine2: String,
+      landmark: String,
+      city: String,
+      state: String,
+      postalCode: String,
+      country: String,
+    },
     dob: {
       type: Date,
     },
   },
   {
     timestamps: true,
-  }
+  },
 );
 
 module.exports = mongoose.model('User', userSchema);

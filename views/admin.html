@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Plant Paradise &middot; Admin</title>
+    <link rel="stylesheet" href="/admin-assets/admin.css" />
+    <script src="/admin-assets/admin.js" defer></script>
+  </head>
+  <body>
+    <aside>
+      <a class="brand" href="/admin"
+        ><span class="brand-icon">&#10087;</span> Plant Paradise<small>ADMIN WORKSPACE</small></a
+      >
+      <nav aria-label="Admin navigation">
+        <a href="/admin" data-route="dashboard">Overview</a
+        ><a href="/admin/products" data-route="products">Manage Plants</a
+        ><a href="/admin/products/new" data-route="new">Add New Plant</a
+        ><a href="/admin/categories" data-route="categories">Categories</a
+        ><a href="/admin/media" data-route="media">Media Library</a
+        ><a href="/admin/users" data-route="users">Users</a
+        ><a href="/admin/orders" data-route="orders">Orders</a
+        ><a href="/admin/settings" data-route="settings">Settings</a>
+      </nav>
+      <div class="sidebar-bottom">
+        <a href="/" target="_blank" rel="noopener">View website</a
+        ><button class="logout secondary">Log out</button>
+      </div>
+    </aside>
+    <div class="workspace">
+      <header>
+        <div>
+          <p class="eyebrow">PLANT PARADISE / ADMIN</p>
+          <h1 id="title">Overview</h1>
+        </div>
+        <div class="profile">
+          <span class="avatar" aria-hidden="true">P</span><span id="admin-name">Administrator</span
+          ><button class="logout secondary">Log out</button>
+        </div>
+      </header>
+      <main id="main" aria-busy="true"><p>Loading your workspace...</p></main>
+      <div id="notice" role="status" aria-live="polite"></div>
+    </div>
+    <dialog id="confirm">
+      <form method="dialog">
+        <h2 id="confirm-title">Confirm action</h2>
+        <p id="confirm-text"></p>
+        <div class="actions">
+          <button value="cancel" class="secondary">Cancel</button
+          ><button value="confirm" class="danger">Confirm</button>
+        </div>
+      </form>
+    </dialog>
+  </body>
+</html>

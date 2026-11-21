@@ -1,5 +1,7 @@
 # 🌿 Plant Paradise - Full-Stack Web Application
 
+> Checkout, customer order history, COD payment tracking, order status management and dashboard role controls now extend this version. See [CHECKOUT.md](./CHECKOUT.md) for the current behavior and setup. Older descriptions of guest checkout, read-only orders, role changes being CLI-only, and order-value revenue are superseded.
+
 > **Discover the beauty and benefits of plants around you.** 🌱
 
 Plant Paradise is a full-stack e-commerce and plant discovery platform built using **Node.js, Express, MongoDB (Mongoose), HTML5, and CSS3**.
@@ -12,7 +14,7 @@ Plant Paradise is a full-stack e-commerce and plant discovery platform built usi
 - 🪴 **Plant Shop & Cart**: Add plants to cart, live quantity adjustments, and direct order placement.
 - 🔐 **Authentication System**:
   - User registration and login with encrypted passwords (`bcryptjs`).
-  - Session tokens (`JWT`) stored in browser `localStorage`.
+  - Server-validated JWT sessions stored in HttpOnly cookies.
   - Dynamic navigation bar: hides Login/Register when logged in and displays the user profile and a **Logout** button.
 - 📩 **Contact Us**: Contact form saving inquiries directly into the database.
 - ☁️ **Cloud Database**: Powered by MongoDB Atlas.
@@ -64,7 +66,7 @@ Web_Project-Plant_Paradise/
 ## 🚀 Getting Started
 
 ### 1. Prerequisites
-- [Node.js](https://nodejs.org/) installed (v16 or higher recommended).
+- [Node.js](https://nodejs.org/) installed (v22 or newer required).
 - A [MongoDB Atlas](https://www.mongodb.com/atlas) account (or a local MongoDB instance).
 
 ### 2. Installation
@@ -76,9 +78,9 @@ npm install
 ### 3. Environment Configuration (`.env`)
 Create or edit the `.env` file in the project root:
 ```env
-PORT=5000
+PORT=3000
 MONGODB_URI=mongodb+srv://<username>:<password>@cluster0.mongodb.net/plant_paradise?retryWrites=true&w=majority
-JWT_SECRET=your_jwt_secret_key_here
+JWT_SECRET=replace_with_a_random_secret_of_at_least_32_characters
 ```
 > 💡 *Replace `<username>` and `<password>` with your MongoDB Atlas database user credentials.*
 
@@ -99,8 +101,8 @@ npm start
 Once started, the console will output:
 ```text
 ===============================================
- Plant Paradise Server running on port 5000
- Local URL: http://localhost:5000
+ Plant Paradise Server running on port 3000
+ Local URL: http://localhost:3000
 ===============================================
 [MongoDB] Connected successfully: ...
 ```
@@ -113,21 +115,21 @@ Open your browser and navigate to:
 
 | Page | URL | Description |
 |---|---|---|
-| 🏠 **Home** | `http://localhost:5000/` | Browse plant categories and use live search |
-| 🛒 **Shop** | `http://localhost:5000/Shop/` | Add plants to cart and place orders |
-| 📝 **Register**| `http://localhost:5000/register/` | Create a new user account |
-| 🔑 **Login** | `http://localhost:5000/login/` | Log into an existing account |
-| 📬 **Contact**| `http://localhost:5000/contact/` | Send inquiries to the database |
+| 🏠 **Home** | `http://localhost:3000/` | Browse plant categories and use live search |
+| 🛒 **Shop** | `http://localhost:3000/Shop/` | Add plants to cart and place orders |
+| 📝 **Register**| `http://localhost:3000/register/` | Create a new user account |
+| 🔑 **Login** | `http://localhost:3000/login/` | Log into an existing account |
+| 📬 **Contact**| `http://localhost:3000/contact/` | Send inquiries to the database |
 
 ---
 
 ## 🔒 Authentication & Session Details
 
-- When a user logs in, user data and an auth token are stored in browser **`localStorage`**.
+- Authentication uses an HttpOnly session cookie. Non-sensitive display data may be cached in localStorage; it never grants API access.
 - Navigation automatically reflects authentication state via `auth-state.js`:
   - When logged out: **Login** and **Register** links are visible.
   - When logged in: **Login** and **Register** are hidden, replaced by the user's name and a **Logout** button.
-- Orders submitted from the Shop are automatically attached to the logged-in user's email.
+- Checkout validates current product prices and stock on the server; order contact email is supplied by the shopper.
 
 ---
 
@@ -137,3 +139,6 @@ Open your browser and navigate to:
 
 
 MongoDB page content setup, migration safety, APIs, and verification: [CONTENT.md](./CONTENT.md).
+
+
+Admin dashboard, shared catalog, migration, environment, secure account setup, API reference and deployment: [ADMIN.md](./ADMIN.md). Read this before deploying the admin upgrade.
