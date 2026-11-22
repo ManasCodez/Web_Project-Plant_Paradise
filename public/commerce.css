@@ -96,19 +96,19 @@ button:disabled {
   margin-top: 5px;
   color: var(--muted);
 }
-nav {
+.store-header nav {
   display: flex;
   gap: 28px;
   font-size: 0.9rem;
   font-weight: 600;
 }
-nav a:hover {
+.store-header nav a:hover {
   color: var(--emerald);
 }
 main {
   max-width: 1200px;
   margin: auto;
-  padding: 42px 24px 70px;
+  padding: 110px 24px 70px;
 }
 .eyebrow {
   color: var(--emerald);

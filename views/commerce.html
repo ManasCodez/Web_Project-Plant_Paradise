@@ -3,21 +3,28 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Checkout · Plant Paradise</title>
+    <title>Plant Paradise</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="/style.css" />
     <link rel="stylesheet" href="/commerce.css" />
+    <script defer src="/auth-state.js"></script>
     <script defer src="/cart.js"></script>
     <script defer src="/commerce.js"></script>
   </head>
   <body>
-    <header class="store-header">
-      <a class="store-brand" href="/"
-        >❧ <span>Plant Paradise<small>ROOTED IN A GREENER TOMORROW</small></span></a
-      >
-      <nav aria-label="Store navigation">
-        <a href="/Shop/">Shop plants</a><a href="/my-orders">My Orders</a
-        ><a href="/" class="home-link">Home</a>
-      </nav>
-    </header>
+    <nav class="navbar">
+      <div class="container nav-container">
+        <a href="/" class="logo">Plant Paradise</a>
+        <ul class="nav-links">
+          <li><a href="/">Home</a></li>
+          <li><a href="/#categories">Categories</a></li>
+          <li><a href="/Shop/">Shop</a></li>
+          <li><a href="/contact/">Contact</a></li>
+          <li><a href="/login/">Login</a></li>
+          <li><a href="/register/">Register</a></li>
+        </ul>
+      </div>
+    </nav>
     <main id="commerce" aria-busy="true">
       <div class="loading-card">Preparing your green companions…</div>
     </main>

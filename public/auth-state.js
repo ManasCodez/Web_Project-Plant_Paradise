@@ -20,6 +20,7 @@ function updateNavAuth() {
   if (location.protocol === 'file:') return;
   const nav = document.querySelector('.nav-links');
   if (!nav) return;
+  nav.style.alignItems = 'center';
   let user;
   try {
     user = JSON.parse(localStorage.getItem('plantParadiseUser'));
@@ -27,8 +28,12 @@ function updateNavAuth() {
     localStorage.removeItem('plantParadiseUser');
   }
   for (const li of nav.querySelectorAll('li')) {
-    if (['login', 'register'].includes(li.textContent.trim().toLowerCase()))
+    if (['login', 'register'].includes(li.textContent.trim().toLowerCase())) {
       li.style.display = user?.email ? 'none' : '';
+    } else if (li.id !== 'nav-user-item') {
+      li.style.display = 'inline-flex';
+      li.style.alignItems = 'center';
+    }
   }
   document.getElementById('nav-user-item')?.remove();
   if (!user?.email) return;
@@ -44,7 +49,6 @@ function updateNavAuth() {
     icon,
     document.createTextNode(String(user.fullname || user.username || user.email).split(' ')[0]),
   );
-  li.append(label);
   const orders = document.createElement('a');
   orders.href = '/my-orders';
   orders.textContent = 'My Orders';
@@ -55,6 +59,7 @@ function updateNavAuth() {
     link.textContent = 'Admin';
     li.append(link);
   }
+  li.append(label);
   const button = document.createElement('button');
   button.type = 'button';
   button.id = 'nav-logout-btn';
