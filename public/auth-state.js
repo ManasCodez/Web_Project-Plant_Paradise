@@ -44,7 +44,6 @@ function updateNavAuth() {
     icon,
     document.createTextNode(String(user.fullname || user.username || user.email).split(' ')[0]),
   );
-  li.append(label);
   const orders = document.createElement('a');
   orders.href = '/my-orders';
   orders.textContent = 'My Orders';
@@ -55,6 +54,7 @@ function updateNavAuth() {
     link.textContent = 'Admin';
     li.append(link);
   }
+  li.append(label);
   const button = document.createElement('button');
   button.type = 'button';
   button.id = 'nav-logout-btn';
