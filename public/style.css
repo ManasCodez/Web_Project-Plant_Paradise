@@ -41,6 +41,7 @@ body {
 .navbar {
     position: fixed;
     top: 20px;
+    left: 5%;
     width: 90%;
     background: #e1f7f0e3;
     border: 2px solid green;
